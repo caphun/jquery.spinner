@@ -6,9 +6,37 @@
 	<!--[if IE]>
 	  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
+	
+	<link type="text/css" rel="stylesheet" href="../theme/jquery.ui.core.css">
+	<link type="text/css" rel="stylesheet" href="../theme/jquery.ui.theme.css">
+	<link type="text/css" rel="stylesheet" href="../theme/jquery.ui.spinner.css">
+	<style>
+		#switcher { position: absolute; right: 10px; top: 10px; }
+	</style>
+	
+	<script src="../libs/jquery-1.4.2.js"></script>
+	<script src="../jquery.spinner.js"></script>
+	<script>
+	
+	jQuery(document).ready(function($) {
+		
+		if (jQuery.fn.themeswitcher) {
+			$('#switcher').themeswitcher();
+		}
+
+		$('input:number').spinner();
+		
+	});
+	
+	</script>
 </head>
 <body>
-	<label for="my_spinner">Spinner:</label>
-	<input id="my_spinner" type="number" />
+
+	<script type="text/javascript" src="http://jqueryui.com/themeroller/themeswitchertool/"></script>
+	<div id="switcher"></div>
+
+	<p><label for="my_spinner_1">Spinner:</label>
+	<input id="my_spinner_1" type="number" /></p>	
+	
 </body>
 </html>

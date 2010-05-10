@@ -1,0 +1,8 @@
+jQuery Spinner
+==============
+
+This is early alpha. Most of the code is an adaptation of the jQuery UI Spinner in labs:
+
+http://jquery-ui.googlecode.com/svn/branches/labs/spinner/ui/ui.spinner.js
+
+Not everything is working right now but it's a start!

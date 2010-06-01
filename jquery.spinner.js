@@ -5,6 +5,7 @@ var hover = 'ui-state-hover',
 	active = 'ui-state-active',
 	uiSpinnerClasses = 'ui-spinner ui-state-default ui-widget ui-widget-content ui-corner-all ';
 
+// define spinner method
 $.extend( $.fn, {
 	spinner: function( options ) {
 		return this.each( function() {
@@ -24,8 +25,14 @@ $.extend( $.expr[":"], {
 
 // plugin constructor
 $.spinner = function( input, options ) {
+	
+	// deep extend
 	this.options = $.extend( true, {}, $.spinner.defaults, options );
+	
+	// this is the original element
 	this.element = $( input );
+	
+	// let's get going!
 	this.init();
 }
 
@@ -74,6 +81,8 @@ $.extend($.spinner, {
 		UP: 38
 	},
 
+	// ignore these key codes
+	// (i.e. the spinner will simply let these pass through without inspection)
 	ignoreCode: function() {
 		var c = $.spinner.keyCode;
 		return [c.TAB,
@@ -88,6 +97,8 @@ $.extend($.spinner, {
 
 	// plugin prototypes
 	prototype: {
+
+		// initialize
 		init: function() {
 
 			var self = this;
@@ -139,23 +150,31 @@ $.extend($.spinner, {
 			});
 
 		},
+
+		// widget container (the outer stuff around the spinner)
 		widgetHtml: function() {
 			return '<div role="spinbutton" class="' + uiSpinnerClasses + 
 					' ui-spinner-' + this.options.dir + 
 					'"></div>';
 		},
+
+		// button controls
 		buttonsHtml: function() {
 			return '<a class="ui-spinner-button ui-spinner-up ui-state-default ui-corner-t' + this.options.dir.substr( -1, 1 ) + 
 					'"><span class="ui-icon ui-icon-triangle-1-n">&#9650;</span></a>' +
 					'<a class="ui-spinner-button ui-spinner-down ui-state-default ui-corner-b' + this.options.dir.substr( -1, 1 ) + 
 					'"><span class="ui-icon ui-icon-triangle-1-s">&#9660;</span></a>';
 		},
+		
+		// converts a humanized number into a machine-readable number
 		parse: function( val ) {
 			if ( typeof val == 'string' ) {
 				val = val.replace( this.options.radixPoint, '.' ).replace( /[^0-9\.]/, '' );
 			}
 			return isNaN( val ) ? null : val;
 		},
+
+		// pretty-up a machine-readable number
 		format: function( num ) {
 			var regex = /(\d+)(\d{3})/,
 				options = this.options,
@@ -182,10 +201,14 @@ $.extend($.spinner, {
 			result = num.replace( '-', '' );
 			this.element.val( neg + prefix + result + suffix );
 		},
+
+		// increment/decrement stored value
 		spin: function( val ) {
 			var value  = this.value();
 			this.value( parseFloat( value || 0 ) + parseFloat( val ) );
 		},
+
+		// get/set the spinner value
 		value: function( val ) {
 			if ( val === undefined ) {
 				return this.element.val();

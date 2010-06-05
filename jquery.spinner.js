@@ -25,9 +25,9 @@ $.extend( $.fn, {
 
 // add special number filter for HTML5 support
 $.extend( $.expr[":"], {
-	number: function( elem ) { 
-		type = 'number';
-		return type === this.type // for browsers that understand the expression
+	number: function( elem, index, match ) { 
+		var type = 'number';
+		return type === elem.type // for browsers that understand the expression
 			|| new RegExp('type="'+ type +'"').test($("<div/>").append($(elem).clone()).html()); // catch others by inspection
 	}
 });

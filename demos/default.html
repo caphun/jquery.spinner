@@ -1,42 +1,42 @@
 <!DOCTYPE HTML>
 <html lang="en-US">
 <head>
-	<title>jquery.spinner - default</title>
-	<meta charset="UTF-8">
-	<!--[if IE]>
-	  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-	
-	<link type="text/css" rel="stylesheet" href="../theme/jquery.ui.core.css">
-	<link type="text/css" rel="stylesheet" href="../theme/jquery.ui.theme.css">
-	<link type="text/css" rel="stylesheet" href="../theme/jquery.ui.spinner.css">
-	<style>
-		#switcher { position: absolute; right: 10px; top: 10px; }
-	</style>
-	
-	<script src="../libs/jquery-1.4.2.js"></script>
-	<script src="../jquery.spinner.js"></script>
-	<script>
-	
-	jQuery(document).ready(function($) {
-		
-		if (jQuery.fn.themeswitcher) {
-			$('#switcher').themeswitcher();
-		}
+  <title>jquery.spinner - default</title>
+  <meta charset="UTF-8">
+  <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  
+  <link type="text/css" rel="stylesheet" href="../theme/jquery.ui.core.css">
+  <link type="text/css" rel="stylesheet" href="../theme/jquery.ui.theme.css">
+  <link type="text/css" rel="stylesheet" href="../theme/jquery.ui.spinner.css">
+  <style>
+    #switcher { position: absolute; right: 10px; top: 10px; }
+  </style>
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script src="../jquery.spinner.js"></script>
+  <script>
+  
+  jQuery(document).ready(function($) {
 
-		$('input:number').spinner();
-		
-	});
-	
-	</script>
+    if (jQuery.fn.themeswitcher) {
+      $('#switcher').themeswitcher();
+    }
+
+    $('#my_spinner_1').spinner();
+
+  });
+  
+  </script>
 </head>
 <body>
 
-	<script type="text/javascript" src="http://jqueryui.com/themeroller/themeswitchertool/"></script>
-	<div id="switcher"></div>
+  <script type="text/javascript" src="http://jqueryui.com/themeroller/themeswitchertool/"></script>
+  <div id="switcher"></div>
 
-	<p><label for="my_spinner_1">Spinner:</label>
-	<input id="my_spinner_1" type="number" /></p>	
-	
+  <p><label for="my_spinner_1">Spinner:</label>
+  <input id="my_spinner_1" type="number"></p>
+
 </body>
 </html>

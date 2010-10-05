@@ -189,7 +189,7 @@ $.spinner.prototype = {
     // get/set the spinner value
     value: function( val ) {
         if ( val === undefined ) {
-            return this.parse( this.element.val() );
+            return this.element.val();
         }
         return this.element.val( this.format( val ) );
     }

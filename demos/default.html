@@ -25,6 +25,7 @@
     }
 
     $('#my_spinner_1').spinner();
+    $('#my_spinner_2').spinner({precision: 2, step: 0.3});
 
   });
   
@@ -32,11 +33,14 @@
 </head>
 <body>
 
-  <script type="text/javascript" src="http://jqueryui.com/themeroller/themeswitchertool/"></script>
+  <!--script type="text/javascript" src="http://jqueryui.com/themeroller/themeswitchertool/"></script-->
   <div id="switcher"></div>
 
   <p><label for="my_spinner_1">Spinner:</label>
   <input id="my_spinner_1" type="number"></p>
+
+  <p><label for="my_spinner_2">Spinner (decimal):</label>
+  <input id="my_spinner_2" type="number"></p>
 
 </body>
 </html>

@@ -111,7 +111,11 @@ $.extend($.spinner, {
 		init: function() {
 
 			var self = this;
-
+            
+            // change element type to text as the number type is a bit 
+            // quirky right now in modern browsers
+            this.element[0].type = 'text';
+            
 			// cosmetics
 			this.element
 				.addClass( 'ui-spinner-input' )
@@ -185,6 +189,7 @@ $.extend($.spinner, {
 
 		// pretty-up a machine-readable number
 		format: function( num ) {
+
 			var regex = /(\d+)(\d{3})/,
 				options = this.options,
 				prefix = options.prefix || '',
@@ -194,7 +199,7 @@ $.extend($.spinner, {
 				group = options.groupSeparator,
 				pt = options.radixPoint,
 				neg = num < 0 ? '-' : '';
-
+                
 			for (
 				num = (
 					isNaN( num )
@@ -220,9 +225,9 @@ $.extend($.spinner, {
 		// get/set the spinner value
 		value: function( val ) {
 			if ( val === undefined ) {
-				return this.element.val();
+				return this.parse( this.element.val() );
 			}
-			return this.element.val( val );
+			return this.element.val( this.format( val ) );
 		}
 	}
 });
